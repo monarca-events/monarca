@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MONARCA | Estructuras para Bodas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts (similares/compatibles) -->
+  <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="#">
+        <img class="brand__logo" src="assets/logo.png" alt="MONARCA" />
+      </a>
+
+      <nav class="nav">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#esencia">Nuestra esencia</a>
+        <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.instagram.com/_monarcaevents?igsh=a25teGhoN2xwNmtz">Instagram</a>
+        <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.facebook.com/share/1EQ6BAW2KC/">Facebook</a>
+        <a id="waBtn" class="btn" href="#" aria-disabled="true" title="WhatsApp: se agregará mañana">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div class="hero__text reveal">
+          <p class="kicker">Estructuras para adornos de boda</p>
+          <h1 class="title">MONARCA</h1>
+          <p class="subtitle">
+            No trabajamos para llenar espacios, trabajamos para darle forma a recuerdos.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn--ghost" href="#esencia">Conocer la marca</a>
+          </div>
+        </div>
+
+        <div class="hero__card reveal">
+          <div class="hero__cardInner">
+            <p class="quote">“No todos los momentos se viven igual.”</p>
+            <div class="badges">
+              <span class="badge">Intención</span>
+              <span class="badge">Escucha</span>
+              <span class="badge">Compromiso</span>
+              <span class="badge">Excelencia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__fade"></div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <h2 class="h2">Catálogo</h2>
+          <p class="p">Explora nuestras estructuras. Toca una foto para verla en grande.</p>
+        </div>
+
+        <div id="gallery" class="gallery"></div>
+      </div>
+    </section>
+
+    <section id="esencia" class="section section--soft">
+      <div class="wrap grid2">
+        <div class="reveal">
+          <h2 class="h2">Nuestra esencia</h2>
+          <p class="p">
+            En MONARCA diseñamos estructuras con intención: escuchamos lo que sueñas,
+            lo convertimos en forma y cuidamos cada detalle para que el momento se sienta único.
+          </p>
+
+          <ul class="list">
+            <li><strong>Intención:</strong> cada pieza tiene un porqué.</li>
+            <li><strong>Escucha:</strong> entendemos tu estilo y lo respetamos.</li>
+            <li><strong>Compromiso:</strong> puntualidad y orden en el montaje.</li>
+            <li><strong>Excelencia:</strong> acabados limpios y estética premium.</li>
+          </ul>
+
+          <div class="ctaRow">
+            <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.instagram.com/_monarcaevents?igsh=a25teGhoN2xwNmtz">Ver Instagram</a>
+            <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.facebook.com/share/1EQ6BAW2KC/">Ver Facebook</a>
+            <a id="waBtn2" class="btn" href="#" aria-disabled="true">WhatsApp (mañana)</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="h3">¿Cómo cotizar?</h3>
+          <p class="p">
+            Envíanos una foto del estilo que buscas, fecha del evento y ubicación.
+            Te respondemos con opciones y disponibilidad.
+          </p>
+          <div class="mini">
+            <div class="mini__item">
+              <span class="dot"></span>
+              <span>Respuesta rápida</span>
+            </div>
+            <div class="mini__item">
+              <span class="dot"></span>
+              <span>Opciones elegantes</span>
+            </div>
+            <div class="mini__item">
+              <span class="dot"></span>
+              <span>Montaje profesional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <p>© <span id="year"></span> MONARCA. Todos los derechos reservados.</p>
+        <div class="footer__links">
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/_monarcaevents?igsh=a25teGhoN2xwNmtz">Instagram</a>
+          <a target="_blank" rel="noopener" href="https://www.facebook.com/share/1EQ6BAW2KC/">Facebook</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lbClose" class="lightbox__close" aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="Vista ampliada" />
+    <div class="lightbox__hint">Click fuera o ESC para cerrar</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
