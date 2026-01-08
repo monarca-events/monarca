@@ -1,5 +1,5 @@
 // Genera el catálogo con 18 fotos: assets/fotos/img01.jpg ... img18.jpg
-const TOTAL = 18;
+const TOTAL = 17;
 
 const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
@@ -75,3 +75,4 @@ function setWhatsApp(numberE164){
   });
 }
 // Ejemplo Guatemala: setWhatsApp("50212345678");
+
