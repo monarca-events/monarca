@@ -352,3 +352,56 @@ body{
 }
 
 
+
+/* ===== HERO: ARREGLO MÓVIL (solo primera pantalla) ===== */
+@media (max-width: 900px){
+
+  .hero{
+    min-height: auto;
+    padding: 78px 0 26px; /* menos alto en móvil */
+  }
+
+  /* marca de agua más sutil y contenida */
+  .hero__watermark{
+    width: 140vw;
+    right: -30vw;
+    bottom: -18vh;
+    opacity: .045;
+    transform: rotate(-4deg);
+  }
+
+  /* el texto vuelve a su lugar */
+  .hero__text{
+    margin-left: 0 !important;
+    transform: none !important;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* collage deja de ser flotante y pasa abajo */
+  .hero__collage--float{
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 380px !important;
+    margin: 18px auto 0 !important;
+  }
+
+  /* separa bien entre texto y collage */
+  .hero__inner{
+    padding-right: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  /* tipografías para que no se rompa */
+  .kicker{ font-size: 14px; letter-spacing: .14em; }
+  .title{ font-size: clamp(42px, 12vw, 62px); line-height: 1; }
+  .subtitle{ font-size: 16px; line-height: 1.55; max-width: 42ch; }
+}
+
+
+
