@@ -165,7 +165,7 @@ body{
   left: 0%;
   top: 6%;
   transform: rotate(-2deg);
-  animation-delay: .25s;
+  animation-delay: .35s;
 }
 .hero__shot--2{
   width: 62%;
@@ -174,7 +174,7 @@ body{
   top: 0%;
   transform: rotate(1.5deg);
   z-index:2;
-  animation-delay: .75s;
+  animation-delay: 1.15s;
 }
 .hero__shot--3{
   width: 52%;
@@ -183,7 +183,7 @@ body{
   top: 18%;
   transform: rotate(3deg);
   z-index:3;
-  animation-delay: 1.25s;
+  animation-delay: 1.95s;
 }
 @keyframes heroIn{
   to{opacity:1; transform: translateY(0) scale(1);}
@@ -402,6 +402,7 @@ body{
   .title{ font-size: clamp(42px, 12vw, 62px); line-height: 1; }
   .subtitle{ font-size: 16px; line-height: 1.55; max-width: 42ch; }
 }
+
 
 
 
