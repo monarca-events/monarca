@@ -63,12 +63,16 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-// WhatsApp: lo activamos mañana con tu número
-function setWhatsApp(numberE164){
-  const link = `https://wa.me/${numberE164.replace(/\D/g,"")}`;
+// ===============================
+// WHATSAPP
+// ===============================
+function setWhatsApp(numberE164, text){
+  const link = `https://wa.me/${numberE164.replace(/\D/g,"")}?text=${encodeURIComponent(text)}`;
   const wa1 = document.getElementById("waBtn");
   const wa2 = document.getElementById("waBtn2");
+
   [wa1, wa2].forEach(btn => {
+    if (!btn) return;
     btn.href = link;
     btn.removeAttribute("aria-disabled");
     btn.title = "Abrir WhatsApp";
@@ -77,6 +81,7 @@ function setWhatsApp(numberE164){
 // Ejemplo Guatemala: setWhatsApp("50212345678");
 // Activar WhatsApp
 setWhatsApp("50257435226", "Hola, me gustaría cotizar estructuras para un evento.");
+
 
 
 
