@@ -76,6 +76,8 @@ function setWhatsApp(numberE164){
 }
 // Ejemplo Guatemala: setWhatsApp("50212345678");
 // Activar WhatsApp
-setWhatsApp(WA_NUMBER, WA_TEXT);
+setWhatsApp("50257435226", "Hola, me gustaría cotizar estructuras para un evento.");
+
+
 
 
