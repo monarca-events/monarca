@@ -41,7 +41,7 @@ body{
 }
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--w)}
-.brand__logo{height:80px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
+.brand__logo{height:60px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
 
 .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .nav a{
@@ -154,7 +154,7 @@ body{
   background: rgba(255,255,255,.06);
   opacity:0;
   transform: translateY(22px) scale(.96);
-  animation: heroIn .75s cubic-bezier(.2,.8,.2,1) forwards;
+  animation: heroIn 1.25s cubic-bezier(.2,.8,.2,1) forwards;
 }
 .hero__shot img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -402,6 +402,113 @@ body{
   .title{ font-size: clamp(42px, 12vw, 62px); line-height: 1; }
   .subtitle{ font-size: 16px; line-height: 1.55; max-width: 42ch; }
 }
+
+
+/* ===== BACKDROP SECTION ===== */
+.backdrop{
+  position: relative;
+  overflow: hidden;
+}
+.backdrop__wrap{
+  position: relative;
+  z-index: 2; /* texto por encima del fondo */
+}
+
+/* ===== DOOR FX (en Backdrop) ===== */
+.doorFx{
+  position:absolute;
+  inset:0;
+  z-index: 5;                 /* por encima del texto al inicio */
+  pointer-events:none;
+  opacity:0;                  /* oculto por defecto */
+}
+
+/* se activa cuando entramos a la sección */
+.backdrop.is-door .doorFx{
+  opacity:1;
+}
+
+/* cada hoja de la puerta */
+.doorFx__panel{
+  position:absolute;
+  top:0; bottom:0;
+  width:50%;
+  background-image: url("assets/puerta.jpeg"); /* tu imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(1.02) contrast(1.02);
+  will-change: transform, opacity;
+}
+
+/* izquierda muestra la mitad izquierda de la imagen */
+.doorFx__panel--left{
+  left:0;
+  background-position: left center;
+}
+
+/* derecha muestra la mitad derecha */
+.doorFx__panel--right{
+  right:0;
+  background-position: right center;
+}
+
+/* Animación: se abren + se van desvaneciendo */
+.backdrop.is-door.door-open .doorFx__panel--left{
+  animation: doorLeftFade 7s cubic-bezier(.16,.1,.3,1) forwards;
+}
+.backdrop.is-door.door-open .doorFx__panel--right{
+  animation: doorRightFade 7s cubic-bezier(.16,.1,.3,1) forwards;
+}
+
+/* Al final el overlay completo desaparece */
+.backdrop.is-door.door-open .doorFx{
+  animation: doorOverlayFade 7s ease forwards;
+}
+
+@keyframes doorLeftFade{
+  0%{
+    transform: translateX(0);
+    opacity:1;
+  }
+  50%{
+    opacity:.9;
+  }
+  75%{
+    opacity:.4;
+  }
+  100%{
+    transform: translateX(-105%);
+    opacity:0;
+  }
+}
+
+@keyframes doorRightFade{
+  0%{
+    transform: translateX(0);
+    opacity:1;
+  }
+  50%{
+    opacity:.9;
+  }
+  75%{
+    opacity:.4;
+  }
+  100%{
+    transform: translateX(105%);
+    opacity:0;
+  }
+}
+
+@keyframes doorOverlayFade{
+  0%{ opacity:1; }
+  60%{ opacity:.85; }
+  100%{ opacity:0; }
+}
+
+.backdropTrigger{
+  height: 1px;
+}
+
 
 
 
