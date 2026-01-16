@@ -549,23 +549,19 @@ body{
 }
 
 @media (max-width: 768px){
-  .brand__logo{
-    height:56px;
-  }
-}
 
-@media (max-width: 768px){
-
-  .doorFx__panel{
-    background-size: cover;
-    background-position: center;
-  }
-
+  /* Backdrop más elegante en móvil */
   .backdrop{
-    min-height: 70vh;   /* antes 80vh, más compacto */
+    min-height: 45vh;
+  }
+
+  /* Puerta más pequeña y controlada */
+  .doorFx__panel{
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
-
 
 
 
