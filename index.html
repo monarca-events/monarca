@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -29,12 +29,14 @@
 
       <nav class="nav">
         <a href="#catalogo">Catálogo</a>
+        <a href="#backdrop" data-door>Backdrop</a>
         <a href="#esencia">Nuestra esencia</a>
         <a class="btn btn--ghost" target="_blank" rel="noopener"
            href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Instagram</a>
         <a class="btn btn--ghost" target="_blank" rel="noopener"
            href="https://www.facebook.com/profile.php?id=61586300915770">Facebook</a>
-        <a id="waBtn" class="btn btn--ghost" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="waBtn2" class="btn btn--ghost" href="#">WhatsApp</a>
+
       </nav>
     </div>
   </header>
@@ -85,8 +87,30 @@
         </div>
 
         <div id="gallery" class="gallery"></div>
+        <!-- Trigger invisible para activar puerta antes de Backdrop -->
+<div id="backdropTrigger" class="backdropTrigger" aria-hidden="true"></div>
       </div>
     </section>
+
+<!-- BACKDROP -->
+<section id="backdrop" class="section section--soft backdrop">
+  <div class="wrap backdrop__wrap">
+    <div class="backdrop__head reveal">
+      <h2 class="h2">Backdrop</h2>
+      <p class="p">Explora nuestros backdrops y estructuras especiales. Toca una foto para verla en grande</p>
+    </div>
+
+    <!-- Galería Backdrop (opcional, aquí luego metes tus fotos) -->
+    <div id="galleryBackdrop" class="gallery"></div>
+  </div>
+
+  <!-- Puerta (overlay) que se activa al llegar a esta sección -->
+  <div class="doorFx" id="doorBackdrop" aria-hidden="true">
+    <div class="doorFx__panel doorFx__panel--left"></div>
+    <div class="doorFx__panel doorFx__panel--right"></div>
+  </div>
+</section>
+
 
     <!-- ESENCIA -->
     <section id="esencia" class="section section--soft">
@@ -94,7 +118,7 @@
         <div class="reveal">
           <h2 class="h2">Nuestra esencia</h2>
           <p class="p">
-            En <strong>Monarca Eventos GT</strong> diseñamos y alquilamos
+           En <strong>Monarca Eventos GT</strong> diseñamos y alquilamos
            <strong>estructuras para bodas y eventos</strong>
            Creamos escenarios elegantes para <strong>bodas</strong>,
            celebraciones y <strong>eventos especiales</strong>,para que tu evento sea único.
@@ -111,8 +135,8 @@
             <a class="btn btn--ghost" target="_blank" rel="noopener"
                href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Ver Instagram</a>
             <a class="btn btn--ghost" target="_blank" rel="noopener"
-               href=" https://www.facebook.com/profile.php?id=61586300915770">Ver Facebook</a>
-            <a id="waBtn2" class="btn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+               href="https://www.facebook.com/profile.php?id=61586300915770">Ver Facebook</a>
+            <a id="waBtn" class="btn" href="#">WhatsApp</a>
           </div>
         </div>
 
@@ -138,7 +162,7 @@
         <p>© <span id="year"></span> MONARCA. Todos los derechos reservados.</p>
         <div class="footer__links">
           <a target="_blank" rel="noopener" href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Instagram</a>
-          <a target="_blank" rel="noopener" href=" https://www.facebook.com/profile.php?id=61586300915770">Facebook</a>
+          <a target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=61586300915770">Facebook</a>
         </div>
       </div>
     </footer>
@@ -152,10 +176,15 @@
     <div class="lightbox__hint">Click fuera o ESC para cerrar</div>
   </div>
 
+  <!-- transicion de la puerta -->
+<div id="doorFx" class="doorFx" aria-hidden="true">
+  <div class="doorFx__panel doorFx__panel--left"></div>
+  <div class="doorFx__panel doorFx__panel--right"></div>
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
