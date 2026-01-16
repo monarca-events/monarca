@@ -41,7 +41,7 @@ body{
 }
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--w)}
-.brand__logo{height:60px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
+.brand__logo{height:80px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
 
 .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .nav a{
@@ -547,6 +547,25 @@ body{
     text-align: center;
   }
 }
+
+@media (max-width: 768px){
+  .brand__logo{
+    height:56px;
+  }
+}
+
+@media (max-width: 768px){
+
+  .doorFx__panel{
+    background-size: cover;
+    background-position: center;
+  }
+
+  .backdrop{
+    min-height: 70vh;   /* antes 80vh, más compacto */
+  }
+}
+
 
 
 
