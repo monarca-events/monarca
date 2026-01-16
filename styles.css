@@ -352,7 +352,6 @@ body{
 }
 
 
-
 /* ===== HERO: ARREGLO MÓVIL (solo primera pantalla) ===== */
 @media (max-width: 900px){
 
@@ -507,6 +506,46 @@ body{
 
 .backdropTrigger{
   height: 1px;
+}
+
+/* ===============================
+   BACKDROP – MOBILE FIX
+   =============================== */
+@media (max-width: 768px){
+
+  /* Contenedor del backdrop */
+  .backdrop{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Puerta */
+  .backdrop__door{
+    width: 85vw;              /* más pequeña */
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1 / 1.2;   /* mantiene proporción elegante */
+  }
+
+  /* Animación más suave en móvil */
+  .backdrop.is-visible .backdrop__door{
+    animation-duration: 3.5s;   /* más lenta */
+  }
+
+  /* Texto del backdrop */
+  .backdrop__title{
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .backdrop__subtitle{
+    font-size: 1rem;
+    max-width: 90%;
+    text-align: center;
+  }
 }
 
 
