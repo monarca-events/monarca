@@ -563,6 +563,12 @@ body{
   }
 }
 
+@media (max-width: 480px){
+  .doorFx__panel{
+    background-size: 75%;
+  }
+}
+
 
 
 
