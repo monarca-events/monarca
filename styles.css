@@ -352,6 +352,7 @@ body{
 }
 
 
+
 /* ===== HERO: ARREGLO MÓVIL (solo primera pantalla) ===== */
 @media (max-width: 900px){
 
@@ -508,64 +509,107 @@ body{
   height: 1px;
 }
 
-/* ===============================
-   BACKDROP – MOBILE FIX
-   =============================== */
-@media (max-width: 768px){
+/* =========================
+   INTRO SOLO MÓVIL - FULLSCREEN
+   ========================= */
 
-  /* Contenedor del backdrop */
-  .backdrop{
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+/* En desktop NO existe */
+.mIntro { 
+  display: none; 
+}
+
+@media (max-width: 900px){
+
+  .mIntro{
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #2f3527; /* respaldo por si la imagen tarda */
+    opacity: 1;
+    pointer-events: none;
+
+    /* Soporte notch / barras del sistema (iPhone/Android) */
+.mIntro{
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}
+
+/* La imagen sigue full cover pero respeta safe-area si el navegador lo aplica */
+.mIntro__img{
+  width: calc(100% - env(safe-area-inset-left) - env(safe-area-inset-right));
+  height: calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  left: env(safe-area-inset-left);
+  top: env(safe-area-inset-top);
+}
+
   }
 
-  /* Puerta */
-  .backdrop__door{
-    width: 85vw;              /* más pequeña */
-    max-width: 360px;
-    height: auto;
-    aspect-ratio: 1 / 1.2;   /* mantiene proporción elegante */
+  /* Imagen FULL SCREEN tipo portada */
+  .mIntro__img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* 🔑 CLAVE */
+    object-position: center;
   }
 
-  /* Animación más suave en móvil */
-  .backdrop.is-visible .backdrop__door{
-    animation-duration: 3.5s;   /* más lenta */
-  }
+  /* Animación lenta */
+ /* Fade + zoom sutil (premium) */
+.mIntro.is-play{
+  animation: mIntroPremium 4.8s cubic-bezier(.2,.8,.2,1) forwards;
+  will-change: opacity, transform;
+}
 
-  /* Texto del backdrop */
-  .backdrop__title{
-    font-size: 1.8rem;
-    text-align: center;
-  }
+.mIntro__img{
+  transform: scale(1.06); /* arranca un poquito más cerca */
+  transition: none;
+  will-change: transform;
+}
 
-  .backdrop__subtitle{
-    font-size: 1rem;
-    max-width: 90%;
-    text-align: center;
+@keyframes mIntroPremium{
+  0%   { opacity: 1; }
+  65%  { opacity: 1; }     /* se mantiene “cerrada” más tiempo */
+  100% { opacity: 0; }
+}
+
+/* Mientras dura el intro, hacemos el zoom-out suave */
+.mIntro.is-play .mIntro__img{
+  animation: mIntroZoom 4.8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+@keyframes mIntroZoom{
+  0%   { transform: scale(1.06); }
+  100% { transform: scale(1.00); }
+}
+
+
+  .mIntro.is-hide{
+    display: none !important;
   }
 }
 
-@media (max-width: 768px){
-
-  /* Backdrop más elegante en móvil */
-  .backdrop{
-    min-height: 45vh;
-  }
-
-  /* Puerta más pequeña y controlada */
-  .doorFx__panel{
-    background-size: 85%;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Respeta accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .mIntro.is-play{
+    animation: none !important;
   }
 }
 
-@media (max-width: 480px){
-  .doorFx__panel{
-    background-size: 75%;
+@media (max-width: 900px){
+  .backdrop-door{
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px){
+  .backdrop *,
+  .backdrop{
+    animation: none !important;
+    transition: none !important;
   }
 }
 
