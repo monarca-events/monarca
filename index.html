@@ -15,10 +15,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- INTRO SOLO MÓVIL (se desvanece al entrar) -->
+<div id="mobileIntro" class="mIntro" aria-hidden="true">
+  <div class="mIntro__backdrop"></div>
+
+  <!-- Cambia la ruta por tu imagen -->
+  <img class="mIntro__img" src="assets/puerta.jpeg" alt="Intro Monarca">
+</div>
+
 
   <!-- HEADER -->
   <header class="header">
@@ -185,6 +193,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
