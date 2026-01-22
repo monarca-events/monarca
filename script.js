@@ -2,7 +2,7 @@
 // CONFIGURACIÓN
 // ===============================
 const TOTAL = 23;
-const TOTAL_BACKDROP = 7;
+const TOTAL_BACKDROP = 9;
 
 // WhatsApp
 const WA_NUMBER = "50257435226";
@@ -174,5 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
     intro.classList.add("is-hide");
   }, 4800);
 });
+
 
 
