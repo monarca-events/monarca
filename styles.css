@@ -1,16 +1,14 @@
 :root{
-  --hm:#303829;         /* Heavy Metal */
-  --vg:#5D5B38;         /* Verdigris */
-  --dng:#B1AD88;        /* Dark Neutral Green */
+  --hm:#303829;
+  --vg:#5D5B38;
+  --dng:#B1AD88;
   --w:#ffffff;
-  --b:#000000;
 
   --radius:22px;
   --shadow: 0 10px 30px rgba(0,0,0,.18);
 
   --font-title: "Baskervville", serif;
   --font-body: "Source Serif 4", serif;
-  --font-script: "Baskervville", serif;
 }
 
 *{box-sizing:border-box}
@@ -19,20 +17,17 @@ body{
   margin:0;
   font-family:var(--font-body);
   color:var(--w);
-  background:
-    radial-gradient(1200px 600px at 20% 10%, rgba(177,173,136,.18), transparent 60%),
-    radial-gradient(900px 500px at 80% 20%, rgba(93,91,56,.18), transparent 60%),
-    var(--hm);
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(177,173,136,.18), transparent 60%),
+              radial-gradient(900px 500px at 80% 20%, rgba(93,91,56,.18), transparent 60%),
+              var(--hm);
 }
 
-/* Layout */
 .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
 .section{padding:70px 0}
 .section--soft{background: rgba(255,255,255,.04)}
 .grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:26px}
-@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+@media (max-width: 900px){.grid2{grid-template-columns:1fr}}
 
-/* Header */
 .header{
   position:sticky; top:0; z-index:30;
   backdrop-filter: blur(10px);
@@ -40,8 +35,8 @@ body{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--w)}
-.brand__logo{height:80px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
+.brand{display:flex;align-items:center;text-decoration:none;color:var(--w)}
+.brand__logo{height:46px;width:auto;display:block;filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));}
 
 .nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .nav a{
@@ -69,7 +64,6 @@ body{
   color: rgba(255,255,255,.92);
   border: 1px solid rgba(255,255,255,.16);
 }
-.btn[aria-disabled="true"]{opacity:.6; pointer-events:none}
 
 /* HERO */
 .hero{
@@ -82,131 +76,58 @@ body{
 }
 .hero__watermark{
   position:absolute;
-  right:-10%;
-  bottom:-20%;
+  inset:auto -10% -20% auto;
   width:min(900px, 90vw);
   opacity:.06;
   pointer-events:none;
   user-select:none;
-  filter: blur(.2px);
   transform: rotate(-6deg);
   z-index:0;
 }
+.hero__inner{position: relative;z-index: 5;display: grid;grid-template-columns: 1fr;align-items: start;}
+.hero__text{max-width:560px}
 
-/* texto hero (izquierda) */
-.hero__inner{
-  position:relative;
-  z-index:5;
-  display:grid;
-  grid-template-columns: 1fr;
-  align-items:start;
-  padding-top: 8px;
-}
-.hero__text{
-  max-width: 620px;
-  transform: translate(-100px, -50px); /* sube bloque completo */
-}
+.kicker{letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);margin:0 0 10px}
+.title{font-family: var(--font-title);font-size: clamp(44px, 6vw, 76px);margin: 0 0 10px;line-height: 1;}
+.subtitle{margin:0;color:rgba(255,255,255,.86);max-width:52ch;line-height:1.5}
 
-/* “Estructuras…” MÁS GRANDE y ARRIBA de MONARCA */
-.kicker{
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color: rgba(255,255,255,.88);
-  margin:0 0 8px 0;
-  font-size: 1.45rem;   /* <-- aquí el tamaño */
-}
-
-/* MONARCA ocupa el espacio central */
-.title{
-  font-family: var(--font-title);
-  font-size: clamp(54px, 6.2vw, 86px);
-  margin: 0 0 14px 0;
-  line-height: 1;
-}
-
-/* descripción */
-.subtitle{
-  margin:0;
-  color:rgba(255,255,255,.86);
-  max-width: 44ch;
-  line-height: 1.55;
-  font-size: 1.05rem;
-}
-
-/* COLLAGE flotante (derecha) */
+/* Collage */
 .hero__collage--float{
   position:absolute;
-  z-index:20;
-  right: 40px;          /* <-- MOVER COLLAGE izquierda/derecha */
+  right: 60px;
   top: 50%;
   transform: translateY(-52%);
-  width: min(560px, 46vw);
+  width: min(520px, 44vw);
   height: min(560px, 62vh);
+  z-index: 10;
 }
-
-/* tarjetas collage */
 .hero__shot{
   position:absolute;
-  border-radius:18px;
+  border-radius: 18px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.12);
   box-shadow: 0 18px 50px rgba(0,0,0,.35);
   background: rgba(255,255,255,.06);
+
   opacity:0;
-  transform: translateY(22px) scale(.96);
-  animation: heroIn 1.25s cubic-bezier(.2,.8,.2,1) forwards;
+  transform: translateY(14px) scale(.985);
+  animation: heroIn 1.15s cubic-bezier(.2,.8,.2,1) forwards;
 }
 .hero__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.hero__shot--1{width:58%;height:78%;left:0%;top:6%;transform: rotate(-2deg);animation-delay:.20s}
+.hero__shot--2{width:62%;height:82%;left:22%;top:0%;transform: rotate(1.5deg);z-index:2;animation-delay:.65s}
+.hero__shot--3{width:52%;height:72%;right:0%;top:18%;transform: rotate(3deg);z-index:3;animation-delay:1.10s}
+@keyframes heroIn{to{opacity:1; transform: translateY(0) scale(1);}}
 
-/* posiciones */
-.hero__shot--1{
-  width: 58%;
-  height: 78%;
-  left: 0%;
-  top: 6%;
-  transform: rotate(-2deg);
-  animation-delay: .35s;
-}
-.hero__shot--2{
-  width: 62%;
-  height: 82%;
-  left: 22%;
-  top: 0%;
-  transform: rotate(1.5deg);
-  z-index:2;
-  animation-delay: 1.15s;
-}
-.hero__shot--3{
-  width: 52%;
-  height: 72%;
-  right: 0%;
-  top: 18%;
-  transform: rotate(3deg);
-  z-index:3;
-  animation-delay: 1.95s;
-}
-@keyframes heroIn{
-  to{opacity:1; transform: translateY(0) scale(1);}
-}
-
-/* Scroll indicator */
+/* Scroll */
 .hero__scroll{
-  position:absolute;
-  left:50%;
-  bottom:16px;
-  transform: translateX(-50%);
-  width:34px;
-  height:54px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
+  position:absolute;left:50%;bottom:16px;transform: translateX(-50%);
+  width: 34px;height: 54px;border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.06);
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding-top:10px;
-  text-decoration:none;
-  backdrop-filter: blur(6px);
-  z-index:25;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding-top:10px;text-decoration:none;backdrop-filter: blur(6px);
+  z-index: 6;
 }
 .hero__scrollDot{
   width:6px;height:6px;border-radius:99px;
@@ -219,59 +140,60 @@ body{
   100%{ transform: translateY(0); opacity:.9; }
 }
 
-/* Responsivo */
-@media (max-width: 900px){
-  .hero{padding:84px 0 36px;}
-  .hero__text{transform:none; max-width: 100%;}
-  .hero__collage--float{
-    position:relative;
-    right:auto; top:auto;
-    transform:none;
-    width:100%;
-    height:420px;
-    margin:14px auto 0;
-  }
-}
-
-/* Section headings */
+/* Headings */
 .section__head{margin-bottom:18px}
-.h2{font-family: var(--font-title); font-size:34px; margin:0 0 8px}
-.h3{font-family: var(--font-title); font-size:24px; margin:0 0 8px}
+.h2{font-family: var(--font-title);font-size: 34px;margin:0 0 8px}
+.h3{font-family: var(--font-title);font-size: 24px;margin:0 0 8px}
 .p{margin:0;color:rgba(255,255,255,.84);line-height:1.6}
 
-/* Gallery */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap:14px;
 }
-@media (max-width:900px){.gallery{grid-template-columns: repeat(2, 1fr)}}
-@media (max-width:520px){.gallery{grid-template-columns: 1fr}}
+@media (max-width: 900px){.gallery{grid-template-columns: repeat(2, 1fr)}}
+@media (max-width: 520px){.gallery{grid-template-columns: 1fr}}
 
 .cardImg{
   position:relative;
-  border-radius:18px;
+  border-radius: 18px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  background: rgba(0,0,0,.22);
   box-shadow: 0 10px 24px rgba(0,0,0,.16);
   cursor:pointer;
   transform: translateZ(0);
 }
 .cardImg img{
-  width:100%; height:320px; object-fit:cover; display:block;
-  transition: transform .55s ease, filter .55s ease;
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  display:block;
+  opacity:1 !important;
+  visibility:visible !important;
   filter: saturate(1.03) contrast(1.02);
+  transition: transform .55s ease, filter .55s ease;
 }
 .cardImg:hover img{transform: scale(1.06); filter: saturate(1.06) contrast(1.05)}
-.cardImg::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.28));
-  opacity:.85;
-  transition: opacity .35s ease;
+
+/* Solo CÓDIGO */
+.cardTag{
+  position:absolute;
+  top:12px; left:12px;
+  padding:10px 12px;
+  border-radius: 16px;
+  background: rgba(48,56,41,.40);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(8px);
+  pointer-events:none;
 }
-.cardImg:hover::after{opacity:.65}
+.cardTag__code{
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 18px;
+  margin:0;
+}
 
 /* Esencia */
 .list{margin:14px 0 0; padding-left:18px}
@@ -296,25 +218,17 @@ body{
 .footer__links a{color:rgba(255,255,255,.82);text-decoration:none}
 .footer__links a:hover{text-decoration:underline}
 
-/* Lightbox */
+/* LIGHTBOX (AHORA MÁS GRANDE) */
 .lightbox{
   position:fixed; inset:0;
   background: rgba(0,0,0,.78);
   display:none;
   align-items:center;justify-content:center;
-  padding:22px;
+  padding:12px;
   z-index:60;
 }
 .lightbox.is-open{display:flex}
-.lightbox img{
-  max-width:min(980px, 96vw);
-  max-height:82vh;
-  border-radius: 18px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 20px 60px rgba(0,0,0,.55);
-  animation: pop .22s ease-out;
-}
-@keyframes pop{from{transform:scale(.98);opacity:.6}to{transform:scale(1);opacity:1}}
+
 .lightbox__close{
   position:absolute; top:16px; right:16px;
   width:44px;height:44px;border-radius:999px;
@@ -323,8 +237,75 @@ body{
   color: var(--w);
   cursor:pointer;
   transition: transform .2s ease;
+  z-index: 2;
 }
 .lightbox__close:hover{transform: scale(1.04)}
+
+.lightbox__content{
+  width: min(1300px, 98vw);
+  background: rgba(48,56,41,.25);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+  backdrop-filter: blur(10px);
+  overflow:hidden;
+
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  min-height: min(90vh, 820px);
+}
+
+.lbMedia{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px;
+}
+.lbMedia img{
+  width: 100%;
+  height: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.lbInfo{
+  padding:18px 18px 16px;
+  border-left: 1px solid rgba(255,255,255,.10);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.lbCode{
+  font-family: var(--font-title);
+  font-size: 34px;
+  margin:0;
+}
+.lbMeta{
+  margin:0;
+  color: rgba(255,255,255,.88);
+  line-height: 1.5;
+}
+.lbBtn{
+  margin-top:6px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius: 999px;
+  text-decoration:none;
+  font-weight:700;
+  background: linear-gradient(135deg, rgba(177,173,136,.95), rgba(93,91,56,.9));
+  color: var(--hm);
+  border:1px solid rgba(255,255,255,.12);
+}
+.lbHint{
+  margin-top:auto;
+  margin-bottom:0;
+  font-size: 13px;
+  opacity: .8;
+}
 .lightbox__hint{
   position:absolute; bottom:14px; left:0; right:0;
   text-align:center;
@@ -332,289 +313,216 @@ body{
   font-size: 13px;
 }
 
-/* Scroll reveal */
+/* Lightbox móvil */
+@media (max-width: 900px){
+  .lightbox{padding:8px;}
+  .lightbox__content{
+    width: 99vw;
+    grid-template-columns: 1fr;
+    min-height: 92vh;
+  }
+  .lbInfo{
+    border-left:none;
+    border-top: 1px solid rgba(255,255,255,.10);
+  }
+  .lbMedia{padding:8px;}
+  .lbMedia img{max-height: 82vh;}
+}
+
+/* Reveal */
 .reveal{opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1; transform: translateY(0)}
 
 
-/* FIX FINAL: mover texto a la izquierda (sin transform) */
-.hero__text{
-  margin-left: -350px !important;   /* mueve a la izquierda */
-  max-width: 560px !important;
-}
-
-/* en pantallas pequeñas no mover */
-@media (max-width: 900px){
-  .hero__collage--float{
-    transform: none;
-    right: auto;
-  }
-}
-
-
-
-/* ===== HERO: ARREGLO MÓVIL (solo primera pantalla) ===== */
-@media (max-width: 900px){
-
-  .hero{
-    min-height: auto;
-    padding: 78px 0 26px; /* menos alto en móvil */
-  }
-
-  /* marca de agua más sutil y contenida */
-  .hero__watermark{
-    width: 140vw;
-    right: -30vw;
-    bottom: -18vh;
-    opacity: .045;
-    transform: rotate(-4deg);
-  }
-
-  /* el texto vuelve a su lugar */
-  .hero__text{
-    margin-left: 0 !important;
-    transform: none !important;
-    max-width: 100%;
-    text-align: left;
-  }
-
-  /* collage deja de ser flotante y pasa abajo */
-  .hero__collage--float{
-    position: relative !important;
-    right: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    height: 380px !important;
-    margin: 18px auto 0 !important;
-  }
-
-  /* separa bien entre texto y collage */
-  .hero__inner{
-    padding-right: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-  }
-
-  /* tipografías para que no se rompa */
-  .kicker{ font-size: 14px; letter-spacing: .14em; }
-  .title{ font-size: clamp(42px, 12vw, 62px); line-height: 1; }
-  .subtitle{ font-size: 16px; line-height: 1.55; max-width: 42ch; }
-}
-
-
-/* ===== BACKDROP SECTION ===== */
-.backdrop{
-  position: relative;
+/* =========================
+   PUERTA BACKDROP (PC) – SIN ESTIRAR (2 COPIAS)
+   ========================= */
+.doorFx{
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  display: none;
   overflow: hidden;
 }
-.backdrop__wrap{
-  position: relative;
-  z-index: 2; /* texto por encima del fondo */
-}
+.doorFx.is-play{display:block;}
 
-/* ===== DOOR FX (en Backdrop) ===== */
-.doorFx{
-  position:absolute;
-  inset:0;
-  z-index: 5;                 /* por encima del texto al inicio */
-  pointer-events:none;
-  opacity:0;                  /* oculto por defecto */
-}
-
-/* se activa cuando entramos a la sección */
-.backdrop.is-door .doorFx{
-  opacity:1;
-}
-
-/* cada hoja de la puerta */
 .doorFx__panel{
   position:absolute;
-  top:0; bottom:0;
+  top:0;
   width:50%;
-  background-image: url("assets/puerta.jpeg"); /* tu imagen */
-  background-repeat: no-repeat;
-  background-size: cover;
+  height:100%;
+  background-image: url("assets/puerta.jpeg");
+  background-repeat:no-repeat;
+  background-size: cover;        /* ✅ NO estira */
+  background-position: center;   /* recorte elegante */
   filter: saturate(1.02) contrast(1.02);
-  will-change: transform, opacity;
+  will-change: transform;
+}
+.doorFx__panel--left{left:0;}
+.doorFx__panel--right{right:0;}
+
+.doorFx.is-play .doorFx__panel--left{animation: doorLeft 5s cubic-bezier(.4,0,.2,1) forwards;}
+.doorFx.is-play .doorFx__panel--right{animation: doorRight 5s cubic-bezier(.4,0,.2,1) forwards;}
+
+@keyframes doorLeft{
+  0%{transform: translateX(0)}
+  25%{transform: translateX(0)}
+  100%{transform: translateX(-110%)}
+}
+@keyframes doorRight{
+  0%{transform: translateX(0)}
+  25%{transform: translateX(0)}
+  100%{transform: translateX(110%)}
 }
 
-/* izquierda muestra la mitad izquierda de la imagen */
-.doorFx__panel--left{
-  left:0;
-  background-position: left center;
-}
-
-/* derecha muestra la mitad derecha */
-.doorFx__panel--right{
-  right:0;
-  background-position: right center;
-}
-
-/* Animación: se abren + se van desvaneciendo */
-.backdrop.is-door.door-open .doorFx__panel--left{
-  animation: doorLeftFade 7s cubic-bezier(.16,.1,.3,1) forwards;
-}
-.backdrop.is-door.door-open .doorFx__panel--right{
-  animation: doorRightFade 7s cubic-bezier(.16,.1,.3,1) forwards;
-}
-
-/* Al final el overlay completo desaparece */
-.backdrop.is-door.door-open .doorFx{
-  animation: doorOverlayFade 7s ease forwards;
-}
-
-@keyframes doorLeftFade{
-  0%{
-    transform: translateX(0);
-    opacity:1;
-  }
-  50%{
-    opacity:.9;
-  }
-  75%{
-    opacity:.4;
-  }
-  100%{
-    transform: translateX(-105%);
-    opacity:0;
-  }
-}
-
-@keyframes doorRightFade{
-  0%{
-    transform: translateX(0);
-    opacity:1;
-  }
-  50%{
-    opacity:.9;
-  }
-  75%{
-    opacity:.4;
-  }
-  100%{
-    transform: translateX(105%);
-    opacity:0;
-  }
-}
-
-@keyframes doorOverlayFade{
-  0%{ opacity:1; }
-  60%{ opacity:.85; }
-  100%{ opacity:0; }
-}
-
-.backdropTrigger{
-  height: 1px;
-}
-
-/* =========================
-   INTRO SOLO MÓVIL - FULLSCREEN
-   ========================= */
-
-/* En desktop NO existe */
-.mIntro { 
-  display: none; 
-}
+/* =======================
+   INTRO SOLO MÓVIL (PUERTA) – PREMIUM
+   ======================= */
+.mobileIntro{display:none;}
 
 @media (max-width: 900px){
-
-  .mIntro{
-    display: block;
+  .mobileIntro{
+    display:block;
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #2f3527; /* respaldo por si la imagen tarda */
-    opacity: 1;
     pointer-events: none;
-
-    /* Soporte notch / barras del sistema (iPhone/Android) */
-.mIntro{
-  padding-top: env(safe-area-inset-top);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-}
-
-/* La imagen sigue full cover pero respeta safe-area si el navegador lo aplica */
-.mIntro__img{
-  width: calc(100% - env(safe-area-inset-left) - env(safe-area-inset-right));
-  height: calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  left: env(safe-area-inset-left);
-  top: env(safe-area-inset-top);
-}
-
+    background: transparent;
+    opacity: 1;
+    will-change: opacity, transform;
   }
 
-  /* Imagen FULL SCREEN tipo portada */
-  .mIntro__img{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* 🔑 CLAVE */
-    object-position: center;
+  .mobileIntro img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    transform: scale(1.06);
+    opacity: 1;
+    will-change: opacity, transform;
   }
 
-  /* Animación lenta */
- /* Fade + zoom sutil (premium) */
-.mIntro.is-play{
-  animation: mIntroPremium 4.8s cubic-bezier(.2,.8,.2,1) forwards;
-  will-change: opacity, transform;
+  .mobileIntro.is-play{animation: introOverlayFade 3.2s ease forwards;}
+  .mobileIntro.is-play img{animation: introImgZoom 3.2s ease forwards;}
+
+  @keyframes introOverlayFade{
+    0%{opacity:1;}
+    70%{opacity:1;}
+    100%{opacity:0;}
+  }
+  @keyframes introImgZoom{
+    0%{transform: scale(1.08);}
+    70%{transform: scale(1.03);}
+    100%{transform: scale(1.00);}
+  }
+
+  /* Ajustes hero en móvil */
+  .hero{padding:86px 0 30px}
+  .hero__collage--float{
+    position: relative;
+    right:auto; top:auto;
+    transform:none;
+    width:100%;
+    height: 420px;
+    margin: 18px auto 0;
+  }
+}
+/* ===== DOOR: armado (pre-cargado) para evitar “pop-in” ===== */
+.doorFx{
+  opacity: 1;
 }
 
-.mIntro__img{
-  transform: scale(1.06); /* arranca un poquito más cerca */
-  transition: none;
-  will-change: transform;
+/* Cuando está armado: ya existe en pantalla (display:block) PERO invisible */
+.doorFx.doorFx--armed{
+  display: block;
+  opacity: 0;
 }
 
-@keyframes mIntroPremium{
+/* Cuando ya toca animar: aparece inmediatamente (sin transición rara) */
+.doorFx.is-play{
+  opacity: 1;
+}
+
+/* (Opcional) fade del overlay al final */
+.doorFx.is-play.doorFx--fade{
+  animation: doorOverlayFade 5s ease forwards;
+}
+@keyframes doorOverlayFade{
   0%   { opacity: 1; }
-  65%  { opacity: 1; }     /* se mantiene “cerrada” más tiempo */
+  70%  { opacity: 1; }
   100% { opacity: 0; }
 }
+/* =========================
+   PUERTA DENTRO DE BACKDROP (PC) – SIN POP-IN
+   ========================= */
 
-/* Mientras dura el intro, hacemos el zoom-out suave */
-.mIntro.is-play .mIntro__img{
-  animation: mIntroZoom 4.8s cubic-bezier(.2,.8,.2,1) forwards;
-}
+/* Por defecto: oculta */
+.backdropDoor{ display:none; }
 
-@keyframes mIntroZoom{
-  0%   { transform: scale(1.06); }
-  100% { transform: scale(1.00); }
-}
-
-
-  .mIntro.is-hide{
-    display: none !important;
+/* Solo PC: se activa */
+@media (min-width: 901px){
+  /* Cuando esté “armada” o “animando”, se muestra */
+  #backdrop.is-door .backdropDoor,
+  #backdrop.door-open .backdropDoor{
+    display:block;
   }
-}
 
-/* Respeta accesibilidad */
-@media (prefers-reduced-motion: reduce){
-  .mIntro.is-play{
-    animation: none !important;
+  .backdropDoor{
+    position:absolute;
+    inset:0;
+    z-index:50;
+    pointer-events:none;
+    overflow:hidden;
+    opacity:1;
   }
-}
 
-@media (max-width: 900px){
-  .backdrop-door{
-    display: none !important;
+  /* paneles */
+  .backdropDoor__panel{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    background-image: url("assets/puerta.jpeg");
+    background-repeat:no-repeat;
+    background-size: cover;      /* no estira */
+    background-position: center;
+    will-change: transform;
   }
-}
+  .backdropDoor__panel--left{ left:0; }
+  .backdropDoor__panel--right{ right:0; }
 
-@media (max-width: 900px){
-  .backdrop *,
-  .backdrop{
-    animation: none !important;
-    transition: none !important;
+  /* abrir solo cuando tenga door-open */
+  #backdrop.door-open .backdropDoor__panel--left{
+    animation: bdDoorLeft 5s cubic-bezier(.4,0,.2,1) forwards;
   }
+  #backdrop.door-open .backdropDoor__panel--right{
+    animation: bdDoorRight 5s cubic-bezier(.4,0,.2,1) forwards;
+  }
+
+  /* fade del overlay */
+  #backdrop.door-open .backdropDoor{
+    animation: bdDoorFade 5s ease forwards;
+  }
+
+  @keyframes bdDoorLeft{
+    0%{transform: translateX(0)}
+    25%{transform: translateX(0)}
+    100%{transform: translateX(-110%)}
+  }
+  @keyframes bdDoorRight{
+    0%{transform: translateX(0)}
+    25%{transform: translateX(0)}
+    100%{transform: translateX(110%)}
+  }
+  @keyframes bdDoorFade{
+    0%{opacity:1}
+    70%{opacity:1}
+    100%{opacity:0}
+  }
+
+  /* Asegura que backdrop pueda “contener” la puerta */
+  #backdrop{ position:relative; }
 }
-
-
-
 
 
 

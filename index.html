@@ -6,35 +6,33 @@
 
   <!-- SEO -->
   <title>Monarca Eventos GT | Estructuras para bodas y eventos</title>
-  <meta name="description" content="Monarca Eventos GT ofrece estructuras, carpas y montajes para bodas y eventos en Guatemala. Catálogo de estructuras elegantes, montaje profesional y atención rápida." />
+  <meta name="description" content="Monarca Eventos GT ofrece estructuras, carpas y montajes para bodas y eventos en Guatemala." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.monarcaeventosgt.com/" />
+
+  <!-- Favicons -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?=v5" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 
 <body>
-  <!-- INTRO SOLO MÓVIL (se desvanece al entrar) -->
-<div id="mobileIntro" class="mIntro" aria-hidden="true">
-  <div class="mIntro__backdrop"></div>
 
-  <!-- Cambia la ruta por tu imagen -->
-  <img class="mIntro__img" src="assets/puerta.jpeg" alt="Intro Monarca">
-</div>
-
-<!-- Favicons -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-
-
+  <!-- Intro SOLO MÓVIL -->
+  <div class="mobileIntro" id="mobileIntro" aria-hidden="true">
+    <img src="assets/puerta.jpeg" alt="Monarca" />
+  </div>
+  
   <!-- HEADER -->
   <header class="header">
     <div class="wrap header__inner">
@@ -44,14 +42,16 @@
 
       <nav class="nav">
         <a href="#catalogo">Catálogo</a>
-        <a href="#backdrop" data-door>Backdrop</a>
+        <a href="#backdrop" data-door="1">Backdrop</a>
         <a href="#esencia">Nuestra esencia</a>
-        <a class="btn btn--ghost" target="_blank" rel="noopener"
-           href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Instagram</a>
-        <a class="btn btn--ghost" target="_blank" rel="noopener"
-           href="https://www.facebook.com/profile.php?id=61586300915770">Facebook</a>
-        <a id="waBtn2" class="btn btn--ghost" href="#">WhatsApp</a>
 
+        <a class="btn btn--ghost" target="_blank" rel="noopener"
+          href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Instagram</a>
+
+        <a class="btn btn--ghost" target="_blank" rel="noopener"
+          href="https://www.facebook.com/profile.php?id=61586300915770">Facebook</a>
+
+        <a id="waBtnTop" class="btn" href="#">WhatsApp</a>
       </nav>
     </div>
   </header>
@@ -60,7 +60,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <!-- Marca de agua -->
+       <!-- Marca de agua -->
       <img class="hero__watermark" src="assets/watermark.png" alt="" aria-hidden="true">
 
       <!-- Texto -->
@@ -76,15 +76,9 @@
 
       <!-- Collage -->
       <div class="hero__collage hero__collage--float" aria-hidden="true">
-        <figure class="hero__shot hero__shot--1">
-          <img src="assets/hero/hero1.jpg" alt="">
-        </figure>
-        <figure class="hero__shot hero__shot--2">
-          <img src="assets/hero/hero2.jpg" alt="">
-        </figure>
-        <figure class="hero__shot hero__shot--3">
-          <img src="assets/hero/hero3.jpg" alt="">
-        </figure>
+        <figure class="hero__shot hero__shot--1"><img src="assets/hero/hero1.jpg" alt=""></figure>
+        <figure class="hero__shot hero__shot--2"><img src="assets/hero/hero2.jpg" alt=""></figure>
+        <figure class="hero__shot hero__shot--3"><img src="assets/hero/hero3.jpg" alt=""></figure>
       </div>
 
       <!-- Scroll -->
@@ -101,43 +95,35 @@
           <p class="p">Explora nuestras estructuras. Toca una foto para verla en grande.</p>
         </div>
 
-        <div id="gallery" class="gallery"></div>
-        <!-- Trigger invisible para activar puerta antes de Backdrop -->
-<div id="backdropTrigger" class="backdropTrigger" aria-hidden="true"></div>
+        <div id="galleryCatalogo" class="gallery"></div>
       </div>
     </section>
 
-<!-- BACKDROP -->
-<section id="backdrop" class="section section--soft backdrop">
-  <div class="wrap backdrop__wrap">
-    <div class="backdrop__head reveal">
-      <h2 class="h2">Backdrop</h2>
-      <p class="p">Explora nuestros backdrops y estructuras especiales. Toca una foto para verla en grande</p>
-    </div>
+    <!-- BACKDROP -->
+    <div id="backdropTrigger" class="backdropTrigger"></div>
+    <section id="backdrop" class="section section--soft">
 
-    <!-- Galería Backdrop (opcional, aquí luego metes tus fotos) -->
-    <div id="galleryBackdrop" class="gallery"></div>
-  </div>
+      <div class="backdropDoor" aria-hidden="true">
+        <div class="backdropDoor__panel backdropDoor__panel--left"></div>
+        <div class="backdropDoor__panel backdropDoor__panel--right"></div>
+      </div>
 
-  <!-- Puerta (overlay) que se activa al llegar a esta sección -->
-  <div class="doorFx" id="doorBackdrop" aria-hidden="true">
-    <div class="doorFx__panel doorFx__panel--left"></div>
-    <div class="doorFx__panel doorFx__panel--right"></div>
-  </div>
-</section>
+      <div class="wrap">
+        <div class="section__head reveal">
+          <h2 class="h2">Backdrop</h2>
+          <p class="p">Explora nuestros backdrops. Toca una foto para verla en grande.</p>
+        </div>
 
+        <div id="galleryBackdrop" class="gallery"></div>
+      </div>
+    </section>
 
     <!-- ESENCIA -->
-    <section id="esencia" class="section section--soft">
+    <section id="esencia" class="section">
       <div class="wrap grid2">
         <div class="reveal">
           <h2 class="h2">Nuestra esencia</h2>
-          <p class="p">
-           En <strong>Monarca Eventos GT</strong> diseñamos y alquilamos
-           <strong>estructuras para bodas y eventos</strong>
-           Creamos escenarios elegantes para <strong>bodas</strong>,
-           celebraciones y <strong>eventos especiales</strong>,para que tu evento sea único.
-          </p>
+          <p class="p">En <strong>Monarca Eventos GT</strong> diseñamos y alquilamos estructuras para bodas y eventos.</p>
 
           <ul class="list">
             <li><strong>Intención:</strong> cada pieza tiene un porqué.</li>
@@ -148,20 +134,16 @@
 
           <div class="ctaRow">
             <a class="btn btn--ghost" target="_blank" rel="noopener"
-               href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Ver Instagram</a>
+              href="https://www.instagram.com/monarcaeventsgt?igsh=M3UxNmlpaDZoMmR1&utm_source=qr">Ver Instagram</a>
             <a class="btn btn--ghost" target="_blank" rel="noopener"
-               href="https://www.facebook.com/profile.php?id=61586300915770">Ver Facebook</a>
+              href="https://www.facebook.com/profile.php?id=61586300915770">Ver Facebook</a>
             <a id="waBtn" class="btn" href="#">WhatsApp</a>
           </div>
         </div>
 
         <div class="card reveal">
           <h3 class="h3">¿Cómo cotizar?</h3>
-          <p class="p">
-            Envíanos una foto del estilo que buscas, fecha del evento y ubicación.
-            Te respondemos con opciones y disponibilidad.
-          </p>
-
+          <p class="p">Envíanos fecha, ubicación y estilo. Te respondemos con opciones y disponibilidad.</p>
           <div class="mini">
             <div class="mini__item"><span class="dot"></span><span>Respuesta rápida</span></div>
             <div class="mini__item"><span class="dot"></span><span>Opciones elegantes</span></div>
@@ -181,29 +163,41 @@
         </div>
       </div>
     </footer>
-
   </main>
 
-  <!-- LIGHTBOX -->
+  <!-- PUERTA (Backdrop transition PC + móvil) -->
+  <div class="doorFx" id="doorFx" aria-hidden="true">
+    <div class="doorFx__panel doorFx__panel--left"></div>
+    <div class="doorFx__panel doorFx__panel--right"></div>
+  </div>
+
+  <!-- LIGHTBOX (imagen izquierda / info derecha) -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button id="lbClose" class="lightbox__close" aria-label="Cerrar">✕</button>
-    <img id="lbImg" alt="Vista ampliada" />
+
+    <div class="lightbox__content">
+      <div class="lbMedia">
+        <img id="lbImg" alt="Vista ampliada" />
+      </div>
+
+      <aside class="lbInfo">
+        <p id="lbCode" class="lbCode">M1</p>
+        <p id="lbMeta" class="lbMeta">Detalles...</p>
+
+        <a id="lbWa" class="lbBtn" href="#" target="_blank" rel="noopener">
+          Cotizar por WhatsApp
+        </a>
+
+        <p class="lbHint">Tip: envíanos fecha + ubicación.</p>
+      </aside>
+    </div>
+
     <div class="lightbox__hint">Click fuera o ESC para cerrar</div>
   </div>
 
-  <!-- transicion de la puerta -->
-<div id="doorFx" class="doorFx" aria-hidden="true">
-  <div class="doorFx__panel doorFx__panel--left"></div>
-  <div class="doorFx__panel doorFx__panel--right"></div>
-</div>
-
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
-
-
-
-
 
 
 
